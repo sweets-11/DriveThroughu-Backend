@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onboarding Completed</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 400px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      #exitButton {
+        background-color: #f44336;
+        color: #fff;
+      }
+
+      #continueButton {
+        background-color: #4caf50;
+        color: #fff;
+      }
+
+      .button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Oops, something went wrong!</h1>
+      <p>Please press the button to continue.</p>
+      <div class="button-container">
+        <a href="#" class="button" id="exitButton">Exit</a>
+        <a href="#" class="button" id="continueButton">Continue</a>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("continueButton")
+        .addEventListener("click", function () {
+          window.ReactNativeWebView.postMessage(1);
+        });
+      document
+        .getElementById("exitButton")
+        .addEventListener("click", function () {
+          window.ReactNativeWebView.postMessage(0);
+        });
+    </script>
+  </body>
+</html>
